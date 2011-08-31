@@ -1,45 +1,40 @@
 package com.blackbeltfactory.scholManagement.teacher;
 
+import java.util.ArrayList;
+
 import com.blackbeltfactory.scholManagement.courses.Courses;
 import com.blackbeltfactory.scholManagement.room.Room;
 
 public class Teacher {
     
-    private String firstName;
-    private String lastname;
-    private Courses courses;
+    private String name;
     private Room room;
+    private ArrayList<Courses> courses;
     
-    public String getFirstName() {
-	return firstName;
-    }
-    
-    public void setFirstName(String firstName) {
-	this.firstName = firstName;
+    public String getName() {
+	return name;
     }
     
-    public String getLastname() {
-	return lastname;
-    }
-    
-    public void setLastname(String lastname) {
-	this.lastname = lastname;
-    }
-
-    public Courses getCourses() {
-	return courses;
-    }
-
-    public void setCourses(Courses courses) {
-	this.courses = courses;
+    public void setName(String firstName, String lastName) {
+	this.name = firstName + lastName;
     }
 
     public Room getRoom() {
 	return room;
     }
 
-    public void setRoom(Room room) {
+    public void setRoom(Room room, String nameRoom) {
 	this.room = room;
+	this.room.setNameRoom(nameRoom);
     }
+
+    public ArrayList<Courses> getCourses() {
+	return courses;
+    }
+
+    public void setCourses(ArrayList<Courses> courses) {
+	this.courses = courses;
+    }
+
 
 }

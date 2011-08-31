@@ -16,21 +16,13 @@
 
 package com.blackbeltfactory.scholManagement.courses;
 
-import com.blackbeltfactory.scholManagement.room.Room;
-import com.blackbeltfactory.scholManagement.student.Student;
-import com.blackbeltfactory.scholManagement.teacher.Teacher;
-
 /**
  * @author Andrew 
  *
  */
 public class Courses {
     
-    private String nameCourses;
-    
-    private Room room;
-    private Student students;
-    private Teacher teacher;
+    private String nameCourses; 
     
     public String getNameCourses() {
 	return nameCourses;
@@ -38,30 +30,6 @@ public class Courses {
     
     public void setNameCourses(String nameCourses) {
 	this.nameCourses = nameCourses;
-    }
-    
-    public Room getRoom() {
-	return room;
-    }
-    
-    public void setRoom(Room room) {
-	this.room = room;
-    }
-    
-    public Student getStudents() {
-	return students;
-    }
-    
-    public void setStudents(Student students) {
-	this.students = students;
-    }
-    
-    public Teacher getTeacher() {
-	return teacher;
-    }
-    
-    public void setTeacher(Teacher teacher) {
-	this.teacher = teacher;
     }
 
 }

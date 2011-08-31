@@ -16,8 +16,6 @@
 
 package com.blackbeltfactory.scholManagement.room;
 
-import com.blackbeltfactory.scholManagement.student.Student;
-
 /**
  * @author Andrew 
  *
@@ -25,7 +23,6 @@ import com.blackbeltfactory.scholManagement.student.Student;
 public class Room {
     
     private String nameRoom;
-    private Student students;
 
     public String getNameRoom() {
 	return nameRoom;
@@ -34,15 +31,5 @@ public class Room {
     public void setNameRoom(String nameRoom) {
 	this.nameRoom = nameRoom;
     }
-
-    public Student getStudents() {
-	return students;
-    }
-
-    public void setStudents(Student students) {
-	this.students = students;
-    }
-    
-    
 
 }

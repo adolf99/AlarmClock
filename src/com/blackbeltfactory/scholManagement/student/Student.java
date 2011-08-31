@@ -16,29 +16,35 @@
 
 package com.blackbeltfactory.scholManagement.student;
 
+import java.util.ArrayList;
+
+import com.blackbeltfactory.scholManagement.courses.Courses;
+
 /**
  * @author Andrew 
  *
  */
 public class Student {
     
-    private String firstName;
-    private String lastName;
+    private String name;
+    private ArrayList<Courses> courses;
     
-    public String getFirstName() {
-	return firstName;
+    public String getName() {
+	return name;
     }
     
-    public void setFirstName(String firstName) {
-	this.firstName = firstName;
+    public void setName(String name) {
+	this.name = name;
     }
-    
-    public String getLastName() {
-	return lastName;
+
+    public ArrayList<Courses> getCourses() {
+	return courses;
     }
-    
-    public void setLastName(String lastName) {
-	this.lastName = lastName;
+
+    public void setCourses(ArrayList<Courses> courses) {
+	this.courses = courses;
     }
+  
+
     
 }

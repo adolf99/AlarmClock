@@ -18,30 +18,44 @@ package com.blackbeltfactory.scholManagement.utils;
 
 import com.blackbeltfactory.scholManagement.courses.Courses;
 import com.blackbeltfactory.scholManagement.room.Room;
-import com.blackbeltfactory.scholManagement.student.Student;
 import com.blackbeltfactory.scholManagement.teacher.Teacher;
 
 /**
  * @author Andrew 
  *
  */
-public class Utils {
-    
-    public void setTeach(Teacher tech, String firstName, String lastName){
-	tech.setFirstName(firstName);
-	tech.setLastname(lastName);
-    }
-    
-    public void setStudent(Student stud, String firstName, String lastName){
-	stud.setFirstName(firstName);
-	stud.setLastName(lastName);
-    }
+public class Employee {
 
-    public void setRomm(Room room, String nameRoom){
-	room.setNameRoom(nameRoom);
+    private Teacher teacher;
+    private Courses courses;
+    private Room room;
+    
+    public Employee(){
+	
     }
     
-    public void setCourses(Courses courses, String nameCourses){
-	courses.setNameCourses(nameCourses);	
+    public void setTeacher(Teacher teacher){
+	this.teacher = teacher;
+    }
+    
+    public Teacher getTeacher(){
+	return teacher;
+    }
+    
+    public void setCourses(Courses courses){
+	this.courses = courses;
+    }
+    
+    public Courses getCourses(){
+	return courses;
+    }
+    
+    public void setRoom(Room room, String nameRoom){
+	this.room = room;
+	this.room.setNameRoom(nameRoom);
+    }
+    
+    public Room getRoom(){
+	return room;
     }
 }
