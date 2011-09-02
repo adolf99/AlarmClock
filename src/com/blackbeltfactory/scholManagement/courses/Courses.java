@@ -16,6 +16,12 @@
 
 package com.blackbeltfactory.scholManagement.courses;
 
+import java.util.ArrayList;
+
+import com.blackbeltfactory.scholManagement.room.Room;
+import com.blackbeltfactory.scholManagement.student.Student;
+import com.blackbeltfactory.scholManagement.teacher.Teacher;
+
 /**
  * @author Andrew 
  *
@@ -23,6 +29,10 @@ package com.blackbeltfactory.scholManagement.courses;
 public class Courses {
     
     private String nameCourses; 
+    private Teacher teacher;
+    private ArrayList<Student> student;
+    private Room room;
+    
     
     public String getNameCourses() {
 	return nameCourses;
@@ -30,6 +40,30 @@ public class Courses {
     
     public void setNameCourses(String nameCourses) {
 	this.nameCourses = nameCourses;
+    }
+
+    public Teacher getTeacher() {
+	return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+	this.teacher = teacher;
+    }
+
+    public ArrayList<Student> getStudent() {
+	return student;
+    }
+
+    public void setStudent(ArrayList<Student> student) {
+	this.student = student;
+    }
+
+    public Room getRoom() {
+	return room;
+    }
+
+    public void setRoom(Room room) {
+	this.room = room;
     }
 
 }

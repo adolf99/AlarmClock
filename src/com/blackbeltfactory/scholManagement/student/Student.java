@@ -16,9 +16,6 @@
 
 package com.blackbeltfactory.scholManagement.student;
 
-import java.util.ArrayList;
-
-import com.blackbeltfactory.scholManagement.courses.Courses;
 
 /**
  * @author Andrew 
@@ -27,24 +24,13 @@ import com.blackbeltfactory.scholManagement.courses.Courses;
 public class Student {
     
     private String name;
-    private ArrayList<Courses> courses;
+    
+    public Student(String name){
+	this.name = name;
+    }
     
     public String getName() {
 	return name;
     }
-    
-    public void setName(String name) {
-	this.name = name;
-    }
 
-    public ArrayList<Courses> getCourses() {
-	return courses;
-    }
-
-    public void setCourses(ArrayList<Courses> courses) {
-	this.courses = courses;
-    }
-  
-
-    
 }

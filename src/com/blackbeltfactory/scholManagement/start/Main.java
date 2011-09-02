@@ -19,6 +19,7 @@ package com.blackbeltfactory.scholManagement.start;
 import java.util.ArrayList;
 
 import com.blackbeltfactory.scholManagement.courses.Courses;
+import com.blackbeltfactory.scholManagement.report.Report;
 import com.blackbeltfactory.scholManagement.room.Room;
 import com.blackbeltfactory.scholManagement.student.Student;
 import com.blackbeltfactory.scholManagement.teacher.Teacher;
@@ -29,114 +30,109 @@ import com.blackbeltfactory.scholManagement.teacher.Teacher;
  */
 public class Main {
     
+    private static Room a = new Room("A");
+    private static Room b = new Room("B");
+    
+    private static Teacher rizzo = new Teacher("John ", "Rizzo");
+    private static Teacher brasseur  = new Teacher("Nicolas ", "Brasseur");	
+    private static Teacher delaux  = new Teacher("Vincent ", "Delvaux");
+
+    private static Student carbonnelle = new Student("Frederic Carbonnelle");	
+    private static Student guilbert = new Student("Murielle Guilbert");	
+    private static Student poulson = new Student("James Poulson");		
+    private static Student lorenzetti = new Student("Emmanuel Lorenzetti");
+    
     /**
      * @param args
      */
     public static void main(String[] args) {
+
+	Courses java = createCoursesJAVA();
+	Courses oo = createCoursesOO();
+	Courses jpa = createCoursesJPA();
+	Courses js = createCoursesJS();
+
+	ArrayList<Courses> listCourses = new ArrayList<Courses>();
+	listCourses.add(java);
+	listCourses.add(oo);
+	listCourses.add(jpa);
+	listCourses.add(js);
 	
-	Courses jav = new Courses();
-	jav.setNameCourses("Java");
+	Report report = new Report();
 	
+	/*1. Display the list of students who have had a course in a 
+	 given room (room and course list given as parameters).*/	
+//	report.reportStudentsInRoom(java, a);
+//	report.reportStudentsInRoom(oo, a);
+//	report.reportStudentsInRoom(oo, b);
+//	report.reportStudentsInRoom(jpa, b);
+//	report.reportStudentsInRoom(js, b);
+	report.reportStudentsInRoom(listCourses, a);
+	System.out.println();
+	
+	/*2. Display the list of the students who have been in 2 given 
+	 rooms (2 rooms and a course list given as parameter).*/
+//	report.reportStudentsInTwoRoom(listCourses, a);
+//	report.reportStudentsInTwoRoom(listCourses, b);
+	report.reportStudentsInTwoRoom(listCourses, a, b);
+	System.out.println();
+	/*3. Display the name of each teacher, followed by ":" and the list of its 
+	 students separated by commas (list of courses given as parameter).*/
+//	report.reportTeacherStudent(java);	
+//	report.reportTeacherStudent(oo);
+//	report.reportTeacherStudent(jpa);
+//	report.reportTeacherStudent(js);
+	report.reportTeacherStudent(listCourses);
+
+    }
+    
+    private static Courses createCoursesJAVA(){
+	Courses java = new Courses();
+	java.setNameCourses("Java");
+	java.setTeacher(rizzo);
+	ArrayList<Student> javaStudent = new ArrayList<Student>();
+	javaStudent.add(carbonnelle);
+	java.setStudent(javaStudent);
+	java.setRoom(a);
+	return java;
+    }
+    
+    private static Courses createCoursesOO(){
 	Courses oo = new Courses();
 	oo.setNameCourses("OO");
-	
+	oo.setTeacher(rizzo);
+	ArrayList<Student> ooStudent = new ArrayList<Student>();
+	ooStudent.add(carbonnelle);
+	ooStudent.add(guilbert);
+	ooStudent.add(lorenzetti);
+	oo.setStudent(ooStudent);
+	oo.setRoom(a);
+	return oo;
+    }
+    
+    private static Courses createCoursesJPA(){
 	Courses jpa = new Courses();
 	jpa.setNameCourses("JPA");
-	
-	Courses javaScript = new Courses();	
+	jpa.setTeacher(brasseur);
+	ArrayList<Student> jpaStudent = new ArrayList<Student>();
+	jpaStudent.add(guilbert);
+	jpaStudent.add(poulson);
+	jpaStudent.add(lorenzetti);
+	jpa.setStudent(jpaStudent);
+	jpa.setRoom(b);
+	return jpa;
+    }
+    
+    private static Courses createCoursesJS(){
+	Courses javaScript = new Courses();
 	javaScript.setNameCourses("JavaScript");
-	
-	ArrayList<Courses> rizCou = new ArrayList<Courses>();	
-	rizCou.add(jav);
-	rizCou.add(oo);	
-	
-	Teacher rizzo = new Teacher();
-	rizzo.setName("John ", "Rizzo");
-	rizzo.setRoom( new Room(), "A");
-	rizzo.setCourses(rizCou);
-	
-	Teacher brasseur  = new Teacher();
-	brasseur.setName("Nicolas ", "Brasseur");
-	brasseur.setRoom(new Room(), "B");
-	setTeacherArray(jpa, brasseur);
-	
-	Teacher delaux  = new Teacher();
-	delaux.setName("Vincent ", "Delvaux");
-	delaux.setRoom(new Room(), "B");
-	setTeacherArray(javaScript, delaux);
-	
-	
-	
-	Student carbonnelle = new Student();
-	carbonnelle.setName("Frederic Carbonnelle");
-	ArrayList<Courses> carList = new ArrayList<Courses>();
-	carList.add(jav);
-	carList.add(oo);
-	carbonnelle.setCourses(carList);
-	
-	Student guilbert = new Student();
-	guilbert.setName("Murielle Guilbert");
-	ArrayList<Courses> guiList = new ArrayList<Courses>();
-	guiList.add(oo);
-	guiList.add(jpa);
-	guilbert.setCourses(guiList);
-	
-	Student poulson = new Student();
-	poulson.setName("James Poulson");
-	ArrayList<Courses> poulList = new ArrayList<Courses>();
-	poulList.add(jpa);
-	poulList.add(javaScript);
-	poulson.setCourses(poulList);
-	
-	Student lorenzetti = new Student();	
-	lorenzetti.setName("Emmanuel Lorenzetti");
-	ArrayList<Courses> lorList = new ArrayList<Courses>();
-	lorList.add(oo);
-	lorList.add(jpa);
-	lorList.add(javaScript);
-	lorenzetti.setCourses(lorList);
-	
-	
-	
-	ArrayList<Student> stud = new ArrayList<Student>();
-	stud.add(carbonnelle);
-	stud.add(guilbert);
-	stud.add(poulson);
-	stud.add(lorenzetti);
-
-	
-	reportTeacher(rizzo, stud);
-	reportTeacher(brasseur, stud);
-	reportTeacher(delaux, stud);
-	
-
-    }
-    
-    private static void reportTeacherStudent(Courses course, Teacher teacher){
-	ArrayList<Courses> coursTeacher = teacher.getCourses();
-	for(Courses cour : coursTeacher){
-	    //System.out.println(course.);
-	}
-    }
-    
-    private static void reportTeacher(Teacher teacher, ArrayList<Student> student){
-	ArrayList<Courses> qw = teacher.getCourses();
-	System.out.println("Teacher " + teacher.getName() + " work in the room " + teacher.getRoom().getNameRoom() + " : ");
-	for(int i=0; i< qw.size(); i++){	   
-	    for(int k=0; k < student.size(); k++){
-		for(int j=0; j < student.get(k).getCourses().size(); j++){
-		    if(qw.get(i) == student.get(k).getCourses().get(j)){
-		     System.out.println("   " + student.get(k).getName() + " - "+ student.get(k).getCourses().get(j).getNameCourses());
-		    }
-		}
-	    }
-	}
-    }
-    
-    private static void setTeacherArray(Courses cours, Teacher teacher){
-	ArrayList<Courses> delCou = new ArrayList<Courses>();
-	delCou.add(cours); 
-	teacher.setCourses(delCou);
+	javaScript.setTeacher(delaux);
+	ArrayList<Student> javaScriptStudent = new ArrayList<Student>();
+	javaScriptStudent.add(poulson);
+	javaScriptStudent.add(lorenzetti);
+	javaScript.setStudent(javaScriptStudent);
+	javaScript.setRoom(b);
+	return javaScript;
     }
 
 }
